@@ -2,6 +2,8 @@ import { createStyles, Header, Autocomplete, Group, Burger } from '@mantine/core
 import { useDisclosure } from '@mantine/hooks';
 // import { IconSearch } from '@tabler/icons';
 import Link from 'next/link'
+import logo from '../../public/dishmakers-logo.png';
+import Image from 'next/image';
 
 const links = [
   { label: 'Home', link: '/' }, 
@@ -65,11 +67,18 @@ export default function SiteHeader() {
     <Header height={56} className={classes.header}>
       <div className={classes.inner}>
         <Group>
-          <Burger opened={opened} onClick={toggle} size="sm" />
-          {/* <MantineLogo size={28} /> */}
+        <Link href="/" >
+          <Image
+            src={logo}
+            alt="Picture of the author"
+            width={155}
+            height={45}
+            />
+            </Link>
+           <Burger opened={opened} onClick={toggle} size="sm" />
         </Group>
-
         <Group>
+        
           <Group ml={50} spacing={5} className={classes.links}>
             {items}
           </Group>
